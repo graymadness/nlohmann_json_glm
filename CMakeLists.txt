@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(Template C CXX)
+project(nlohmann_json_glm C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(BUILD_SHARED_LIBS OFF)
@@ -18,7 +18,6 @@ add_compile_options("$<$<CONFIG:DEBUG>:-DDEBUG>") # Define DEBUG in Debug builds
 #--------------------------------
 
 if(MINGW)
-    ADD_COMPILE_OPTIONS(-lstdc++fs)
     set(WIN32 ON)
 endif()
 
@@ -32,12 +31,10 @@ add_subdirectory(lib)
 # Source
 #--------------------------------
 
-file(GLOB_RECURSE PROJECT_SOURCE src/*.hpp src/*.cpp src/*.h src/*.c)
+add_library(nlohmann_json_glm INTERFACE)
+target_include_directories(nlohmann_json_glm INTERFACE src/)
 
-add_library(Template STATIC ${PROJECT_SOURCE})
-target_include_directories(Template PUBLIC src/)
-
-target_link_libraries(Template -static-libgcc -static-libstdc++ stdc++fs)
+target_link_libraries(nlohmann_json_glm INTERFACE glm nlohmann_json)
 
 #--------------------------------
 # Tests

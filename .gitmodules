@@ -1,0 +1,8 @@
+[submodule "nlohmann_json"]
+	path = lib/nlohmann_json
+	url = git@github.com:nlohmann/json.git
+	branch = master
+[submodule "glm"]
+	path = lib/glm
+	url = git@github.com:g-truc/glm.git
+	branch = master

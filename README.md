@@ -1,12 +1,13 @@
-# Template
+# GLM parser for nlohmann's JSON
 
-This is template project to allow fast and simple C++ project creation.
+Extends [nlohmann's JSON library](https://nlohmann.github.io/json/) with [GLM](https://glm.g-truc.net) types.
 
 ## Libraries
 
 | Name | License | Version |
 |------|---------|---------|
-| ... | `MIT` / `GPLv3` | branch: `master` |
+| [GLM](https://glm.g-truc.net) | [`MIT`](https://github.com/g-truc/glm/blob/master/copying.txt) | branch: [`master`](https://github.com/g-truc/glm/tree/master) |
+| [nlohmann JSON](https://nlohmann.github.io/json/) | [`MIT`](https://github.com/nlohmann/json/blob/master/LICENSE.MIT) | branch: [`master`](https://github.com/nlohmann/json/tree/master) |
 
 All libraries are used as `static library` to maximize optimization and limit problems with deployment and versions.
 
