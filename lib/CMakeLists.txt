@@ -7,7 +7,6 @@ SET(BUILD_TESTING OFF) # No need to test libraries
 #--------------------------------
 
 if(NOT TARGET glm)
-    add_compile_definitions(GLM_FORCE_SWIZZLE) # Allow `vec3(1,2,3).zyx()`
     add_subdirectory(glm)
 endif()
 
