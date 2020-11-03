@@ -45,9 +45,9 @@ namespace nlohmann
                 }
                 case json::value_t::array:
                 {
-                    float x = j.size() >= 1 && !j[0].empty() ? j[0].get<T>() : 0.0f;
-                    float y = j.size() >= 2 && !j[1].empty() ? j[1].get<T>() : 0.0f;
-                    float z = j.size() >= 3 && !j[2].empty() ? j[2].get<T>() : 0.0f;
+                    T x = j.size() > 0 && !j[0].empty() ? j[0].get<T>() : T();
+                    T y = j.size() > 1 && !j[1].empty() ? j[1].get<T>() : T();
+                    T z = j.size() > 2 && !j[2].empty() ? j[2].get<T>() : T();
 
                     value = vec(x, y, z);
                     return;
@@ -60,9 +60,9 @@ namespace nlohmann
                     }
                     else
                     {
-                        float x = j.contains("x") && !j["x"].empty() ? j["x"].get<T>() : 0.0f;
-                        float y = j.contains("y") && !j["y"].empty() ? j["y"].get<T>() : 0.0f;
-                        float z = j.contains("z") && !j["z"].empty() ? j["z"].get<T>() : 0.0f;
+                        T x = j.contains("x") && !j["x"].empty() ? j["x"].get<T>() : T();
+                        T y = j.contains("y") && !j["y"].empty() ? j["y"].get<T>() : T();
+                        T z = j.contains("z") && !j["z"].empty() ? j["z"].get<T>() : T();
 
                         value = vec(x, y, z);
                     }

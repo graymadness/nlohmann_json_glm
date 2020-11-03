@@ -33,7 +33,7 @@ void TestVector_Fail(TVec result, const std::vector<std::string>& inputs)
         throw std::runtime_error("Test did not fail");
 }
 
-int main(int argc, const char** argv)
+void Test_Vectors()
 {
     // vec2 - multiple values
     {
@@ -194,4 +194,85 @@ int main(int argc, const char** argv)
         TestVector_Fail<glm::vec4>(glm::vec4(), { "{ 'x':[] }" });
         TestVector_Fail<glm::vec4>(glm::vec4(), { "{ 'x':{} }" });
     }
+}
+
+void Test_Matrices()
+{
+    // mat2x2 - single value
+    {
+        std::vector<std::string> inputs = {
+                "9",
+                "9.0"
+        };
+        TestVector<glm::mat2>(
+                glm::mat2(
+                        9, 9,
+                        9, 9
+                ),
+                inputs
+        );
+        TestVector<glm::dmat2>(
+                glm::dmat2(
+                        9, 9,
+                        9, 9
+                ),
+                inputs
+        );
+    }
+
+    // mat3x3 - single value
+    {
+        std::vector<std::string> inputs = {
+                "9",
+                "9.0"
+        };
+        TestVector<glm::mat3>(
+                glm::mat3(
+                        9, 9, 9,
+                        9, 9, 9,
+                        9, 9, 9
+                ),
+                inputs
+        );
+        TestVector<glm::dmat3>(
+                glm::dmat3(
+                        9, 9, 9,
+                        9, 9, 9,
+                        9, 9, 9
+                ),
+                inputs
+        );
+    }
+
+    // mat4x4 - single value
+    {
+        std::vector<std::string> inputs = {
+                "9",
+                "9.0"
+        };
+        TestVector<glm::mat4>(
+                glm::mat4(
+                        9, 9, 9, 9,
+                        9, 9, 9, 9,
+                        9, 9, 9, 9,
+                        9, 9, 9, 9
+                ),
+                inputs
+        );
+        TestVector<glm::dmat4>(
+                glm::dmat4(
+                        9, 9, 9, 9,
+                        9, 9, 9, 9,
+                        9, 9, 9, 9,
+                        9, 9, 9, 9
+                ),
+                inputs
+        );
+    }
+}
+
+int main(int argc, const char** argv)
+{
+    Test_Vectors();
+    Test_Matrices();
 }
