@@ -2,6 +2,7 @@
 
 #include <glm/mat2x2.hpp>
 #include <nlohmann/json.hpp>
+#include <vector>
 
 namespace nlohmann
 {
@@ -18,10 +19,10 @@ namespace nlohmann
 
         static void to_json(json& j, const mat& value)
         {
-            j = {
-                    value[0], value[1],
-                    value[2], value[3]
-            };
+            j = json::array({
+                    value[0][0], value[0][1],
+                    value[1][0], value[1][1]
+            });
         }
 
         static void from_json(const json& j, mat& value)

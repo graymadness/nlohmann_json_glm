@@ -26,7 +26,7 @@ namespace nlohmann
 
         static void to_json(json& j, const vec& value)
         {
-            j = { value.x, value.y, value.z, value.w };
+            j = json::array({ value.x, value.y, value.z, value.w });
         }
 
         static void from_json(const json& j, vec& value)
